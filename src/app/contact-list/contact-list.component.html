@@ -1,0 +1,16 @@
+<ul class="contact__list">
+  <ng-container *ngIf="contactList.length > 0; else noContacts">
+    <li
+      class="contact__list_item"
+      *ngFor="let contact of contactList"
+      (click)="onContactClick(contact)"
+    >
+      <p>{{ contact.firstName }}</p>
+    </li>
+  </ng-container>
+  <ng-template #noContacts>
+    <li class="contact__list_item_notFound">
+      <p>No contacts found !</p>
+    </li>
+  </ng-template>
+</ul>

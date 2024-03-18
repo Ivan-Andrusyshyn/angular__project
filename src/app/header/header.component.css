@@ -1,0 +1,12 @@
+.header {
+  background-color: #333;
+  padding: 10px;
+  color: #fff;
+  font-size: 2rem;
+  letter-spacing: 0.3em;
+}
+.header h2,
+p {
+  margin: 0;
+  font-size: 1.2rem;
+}

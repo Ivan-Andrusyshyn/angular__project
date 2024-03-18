@@ -1,0 +1,17 @@
+.contact__search {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.contact__search::placeholder {
+  color: #999;
+}
+
+.contact__search:invalid {
+  border-color: red;
+}

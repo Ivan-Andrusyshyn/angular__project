@@ -1,0 +1,15 @@
+<section class="user__container">
+  <div class="sidebar">
+    <div class="contact__container">
+      <h2>Contacts</h2>
+
+      <app-search-contact></app-search-contact>
+      <app-contact-list></app-contact-list>
+    </div>
+    <button class="btn__logout" (click)="onLogout()">Logout</button>
+  </div>
+  <div class="content">
+    <h3 *ngIf="currentContact">Selected Contact:</h3>
+    <p *ngIf="currentContact">{{ currentContact.firstName }}</p>
+  </div>
+</section>

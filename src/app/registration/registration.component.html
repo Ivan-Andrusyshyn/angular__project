@@ -1,0 +1,43 @@
+<div class="registration__container">
+  <h2>Registration</h2>
+  <form
+    class="registration__form"
+    #userForm="ngForm"
+    (ngSubmit)="performLogin(userForm.value)"
+  >
+    <label for="name">Name:</label>
+    <input
+      type="text"
+      id="name"
+      [(ngModel)]="user.name"
+      name="name"
+      required
+      class="form-control"
+    />
+
+    <label for="email">Email:</label>
+    <input
+      type="email"
+      id="email"
+      [(ngModel)]="user.email"
+      name="email"
+      required
+      class="form-control"
+    />
+
+    <label for="password">Password:</label>
+    <input
+      type="password"
+      id="password"
+      [(ngModel)]="user.password"
+      name="password"
+      required
+      class="form-control"
+    />
+
+    <button type="submit" class="btn btn-primary">Create account</button>
+  </form>
+  <span>
+    <a routerLink="/login" class="login_link">Go to login</a>
+  </span>
+</div>

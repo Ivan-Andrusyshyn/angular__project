@@ -1,1 +1,49 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body,
+div,
+p,
+span,
+app-root,
+app-header,
+app-footer,
+app-sidebar,
+app-content,
+button,
+input,
+textarea,
+select {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
