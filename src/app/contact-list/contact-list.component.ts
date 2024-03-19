@@ -2,11 +2,12 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ContactTypes, ContactsService } from '../contacts.service';
 import { Subscription } from 'rxjs';
 import { NgFor, NgIf } from '@angular/common';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-contact-list',
   standalone: true,
-  imports: [NgFor, NgIf],
+  imports: [NgFor, NgIf, RouterLink, RouterLinkActive],
   templateUrl: './contact-list.component.html',
   styleUrls: ['./contact-list.component.css'],
 })

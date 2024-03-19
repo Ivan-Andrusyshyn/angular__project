@@ -1,38 +1,35 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { ContactListComponent } from '../contact-list/contact-list.component';
 import { ContactTypes, ContactsService } from '../contacts.service';
 import { NgIf } from '@angular/common';
-import { Subscription } from 'rxjs';
 import { SearchContactComponent } from '../search-contact/search-contact.component';
+import { Router, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-user-dashboard',
   standalone: true,
-  imports: [ContactListComponent, SearchContactComponent, NgIf],
+  imports: [ContactListComponent, RouterOutlet, SearchContactComponent, NgIf],
   templateUrl: './user-dashboard.component.html',
   styleUrl: './user-dashboard.component.css',
 })
-export class UserDashboardComponent implements OnInit, OnDestroy {
-  currentContact: ContactTypes | null | undefined;
-
-  private contactSubscription: Subscription | undefined;
+export class UserDashboardComponent implements OnInit {
   constructor(
     private authService: AuthService,
+    private router: Router,
     private contactsService: ContactsService
   ) {}
 
   ngOnInit(): void {
-    this.currentContact = this.contactsService.getSelectedContact();
-    this.contactSubscription = this.contactsService.selectedContact$.subscribe(
-      (contact) => {
-        this.currentContact = contact;
+    const savedContact = localStorage.getItem('selectedContact');
+    if (savedContact) {
+      const parsedContact: ContactTypes = JSON.parse(savedContact);
+      if (parsedContact && parsedContact.id) {
+        this.router.navigate(['/dashboard/contacts', parsedContact.id]);
       }
-    );
+    }
   }
-  ngOnDestroy(): void {
-    this.contactSubscription?.unsubscribe();
-  }
+
   onLogout() {
     this.authService.logout();
   }

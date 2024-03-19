@@ -5,7 +5,7 @@ import { contactList } from './utils/contactList';
 export interface ContactTypes {
   id: number;
   firstName: string;
-  secondName: string;
+  lastName: string;
   email: string;
   phoneNumber: number;
   description: string;
@@ -48,8 +48,16 @@ export class ContactsService {
     this.filteredContacts = this.contacts.filter((contact) =>
       contact.firstName.toLowerCase().includes(query)
     );
-    console.log(query);
     this.filteredContacts$.next(this.filteredContacts);
+  }
+
+  updateContact(contact: ContactTypes | undefined): void {
+    if (!contact) return;
+
+    const index = this.contacts.findIndex((c) => c.id === contact.id);
+    if (index !== -1) {
+      this.contacts[index] = contact;
+    }
   }
 
   setSelectedContact(contact: ContactTypes): void {

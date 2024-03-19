@@ -4,8 +4,12 @@
       class="contact__list_item"
       *ngFor="let contact of contactList"
       (click)="onContactClick(contact)"
+      routerLinkActive="active"
+      [routerLink]="['/dashboard/contacts', contact.id]"
     >
-      <p>{{ contact.firstName }}</p>
+      <a>
+        <p>{{ contact.firstName }}</p>
+      </a>
     </li>
   </ng-container>
   <ng-template #noContacts>

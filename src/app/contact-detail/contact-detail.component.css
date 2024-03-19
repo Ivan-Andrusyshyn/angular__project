@@ -1,0 +1,41 @@
+.contact-details {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.title__container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.pencil__emoji {
+  font-size: 24px;
+  width: 3rem;
+  border-radius: 50%;
+  height: 3rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.25s linear;
+}
+
+.pencil__emoji:hover {
+  background-color: aquamarine;
+}
+
+.contact-details h2 {
+  margin-bottom: 10px;
+}
+
+.contact-details p {
+  margin-bottom: 5px;
+}
+
+.contact-details strong {
+  font-weight: bold;
+}

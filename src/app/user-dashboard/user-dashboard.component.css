@@ -27,7 +27,7 @@
   cursor: pointer;
 }
 
-.content {
+.currentContact__container {
   flex-grow: 1;
   padding: 20px;
 }

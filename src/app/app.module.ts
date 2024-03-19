@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { routes } from './app.routes';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppComponent } from './app.component';
 import { RegistrationComponent } from './registration/registration.component';
@@ -29,6 +30,7 @@ import { ContactListComponent } from './contact-list/contact-list.component';
     BrowserModule,
     FormsModule,
     NgIf,
+    FontAwesomeModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
   ],

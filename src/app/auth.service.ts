@@ -26,6 +26,7 @@ export class AuthService {
     const user = userString ? (JSON.parse(userString) as User) : null;
     this.authUser.next(user);
   }
+
   private onStorage(newUser: User, type: string) {
     localStorage.setItem('isAuthenticated', 'true');
     localStorage.setItem('USER', JSON.stringify(newUser));
