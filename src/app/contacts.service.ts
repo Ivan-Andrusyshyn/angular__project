@@ -7,7 +7,7 @@ export interface ContactTypes {
   firstName: string;
   lastName: string;
   email: string;
-  phoneNumber: number;
+  phoneNumber: string;
   description: string;
   company: string;
 }
@@ -57,7 +57,26 @@ export class ContactsService {
     const index = this.contacts.findIndex((c) => c.id === contact.id);
     if (index !== -1) {
       this.contacts[index] = contact;
+      this.updateFilteredContacts();
     }
+  }
+
+  addContact(contact: ContactTypes | undefined): void {
+    if (!contact) return;
+
+    const isDuplicateContact = this.contacts.some(
+      (c) =>
+        c.firstName === contact.firstName && c.lastName === contact.lastName
+    );
+
+    if (isDuplicateContact) {
+      alert('You have the same contact.');
+      return;
+    }
+
+    contact.id = this.getNextId();
+    this.contacts.push(contact);
+    this.updateFilteredContacts();
   }
 
   setSelectedContact(contact: ContactTypes): void {
@@ -67,5 +86,10 @@ export class ContactsService {
 
   getSelectedContact(): ContactTypes | null {
     return this.selectedContactSubject.getValue();
+  }
+
+  private getNextId(): number {
+    const maxId = Math.max(...this.contacts.map((contact) => contact.id), 0);
+    return maxId + 1;
   }
 }

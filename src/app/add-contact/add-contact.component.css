@@ -1,0 +1,20 @@
+.addContact__btn {
+  border: 2px solid red;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.25s linear;
+}
+
+.addContact__btn:hover {
+  border: 2px solid rgb(67, 43, 206);
+  color: yellow;
+  background-color: rgb(116, 116, 238);
+}

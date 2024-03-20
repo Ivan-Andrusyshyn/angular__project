@@ -1,13 +1,13 @@
 <div *ngIf="contact" class="contact-details">
   <div class="title__container">
-    <h3 *ngIf="currentContact">Selected Contact:</h3>
     <h2>{{ contact.firstName }} {{ contact.lastName }}</h2>
     <span class="pencil__emoji" (click)="toggleEditMode()">&#9998;</span>
   </div>
   <div *ngIf="editMode; else displayMode">
     <app-contact-form
       [contact]="contact"
-      (save)="saveChanges()"
+      (save)="saveChanges($event)"
+      (toggleEditMode)="toggleEditMode()"
     ></app-contact-form>
   </div>
   <ng-template #displayMode>

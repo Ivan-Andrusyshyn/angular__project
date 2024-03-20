@@ -27,6 +27,12 @@
   cursor: pointer;
 }
 
+.title__contact_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .currentContact__container {
   flex-grow: 1;
   padding: 20px;

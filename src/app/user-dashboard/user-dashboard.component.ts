@@ -5,11 +5,18 @@ import { ContactTypes, ContactsService } from '../contacts.service';
 import { NgIf } from '@angular/common';
 import { SearchContactComponent } from '../search-contact/search-contact.component';
 import { Router, RouterOutlet } from '@angular/router';
+import { AddContactComponent } from '../add-contact/add-contact.component';
 
 @Component({
   selector: 'app-user-dashboard',
   standalone: true,
-  imports: [ContactListComponent, RouterOutlet, SearchContactComponent, NgIf],
+  imports: [
+    ContactListComponent,
+    AddContactComponent,
+    RouterOutlet,
+    SearchContactComponent,
+    NgIf,
+  ],
   templateUrl: './user-dashboard.component.html',
   styleUrl: './user-dashboard.component.css',
 })

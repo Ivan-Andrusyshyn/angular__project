@@ -1,47 +1,46 @@
-<div *ngIf="contact">
-  <form class="edit-mode" (ngSubmit)="onSave()">
-    <input
-      type="text"
-      placeholder="First Name"
-      [(ngModel)]="contact.firstName"
-      name="firstName"
-      class="input-field"
-    />
-    <input
-      type="text"
-      placeholder="Last Name"
-      [(ngModel)]="contact.lastName"
-      name="lastName"
-      class="input-field"
-    />
-    <input
-      type="email"
-      placeholder="Email"
-      [(ngModel)]="contact.email"
-      name="email"
-      class="input-field"
-    />
-    <input
-      type="tel"
-      placeholder="Phone Number"
-      [(ngModel)]="contact.phoneNumber"
-      name="phoneNumber"
-      class="input-field"
-    />
-    <textarea
-      placeholder="Description"
-      [(ngModel)]="contact.description"
-      name="description"
-      class="input-field"
-    ></textarea>
-    <input
-      type="text"
-      placeholder="Company"
-      [(ngModel)]="contact.company"
-      name="company"
-      class="input-field"
-    />
+<form class="edit-mode" (ngSubmit)="onSave()">
+  <input
+    type="text"
+    placeholder="Add first name"
+    [(ngModel)]="fieldsContact.firstName"
+    name="firstName"
+    class="input-field"
+  />
+  <input
+    type="text"
+    placeholder="Add last name"
+    [(ngModel)]="fieldsContact.lastName"
+    name="lastName"
+    class="input-field"
+  />
+  <input
+    type="email"
+    placeholder="Add email"
+    [(ngModel)]="fieldsContact.email"
+    name="email"
+    class="input-field"
+  />
+  <input
+    type="tel"
+    placeholder="Add phone number"
+    [(ngModel)]="fieldsContact.phoneNumber"
+    name="phoneNumber"
+    class="input-field"
+  />
+  <textarea
+    placeholder="Add description"
+    [(ngModel)]="fieldsContact.description"
+    name="description"
+    class="input-field"
+  ></textarea>
+  <input
+    type="text"
+    placeholder="Add company"
+    [(ngModel)]="fieldsContact.company"
+    name="company"
+    class="input-field"
+  />
 
-    <button type="submit" class="save-btn">Save</button>
-  </form>
-</div>
+  <button type="submit" class="save-btn">Save</button>
+  <button type="button" (click)="onCancel()" class="cancel-btn">Cancel</button>
+</form>

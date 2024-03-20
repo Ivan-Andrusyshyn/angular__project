@@ -14,7 +14,7 @@ import { ContactFormComponent } from '../contact-form/contact-form.component';
   styleUrls: ['./contact-detail.component.css'],
 })
 export class ContactDetailComponent implements OnInit, OnDestroy {
-  contact: ContactTypes | undefined;
+  contact: ContactTypes | undefined | null;
   currentContact: ContactTypes | null | undefined;
   editMode: boolean = false;
 
@@ -29,18 +29,23 @@ export class ContactDetailComponent implements OnInit, OnDestroy {
     this.editMode = !this.editMode;
   }
 
-  saveChanges(): void {
-    this.contactsService.updateContact(this.contact);
+  saveChanges(updateContact: ContactTypes): void {
+    console.log(this.contact);
+
     this.editMode = false;
+    if (!this.contact) return;
+    this.contactsService.updateContact(updateContact);
+    this.contact = updateContact;
   }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
       const id = Number(params.get('id'));
       if (id) {
-        this.contact = this.contactsService.contacts.find(
-          (contact) => contact.id === id
-        );
+        this.contactSubscription =
+          this.contactsService.selectedContact$.subscribe((selectedContact) => {
+            this.contact = selectedContact;
+          });
       }
     });
   }

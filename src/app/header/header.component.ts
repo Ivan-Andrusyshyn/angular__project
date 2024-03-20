@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../auth.service';
+import { Subscription } from 'rxjs';
 
 export interface User {
   name: string;
@@ -15,12 +16,19 @@ export interface User {
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
   user: User | null = null;
+  private authSubscription: Subscription | undefined;
+
   constructor(private authService: AuthService) {}
   ngOnInit(): void {
-    this.authService.authUser?.subscribe((user: User | null) => {
-      this.user = user;
-    });
+    this.authSubscription = this.authService.authUser?.subscribe(
+      (user: User | null) => {
+        this.user = user;
+      }
+    );
+  }
+  ngOnDestroy(): void {
+    this.authSubscription?.unsubscribe();
   }
 }

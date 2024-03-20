@@ -3,8 +3,9 @@ import { RegistrationComponent } from './registration/registration.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { AuthGuard } from './auth.guard';
 import { LoginComponent } from './login/login.component';
-import { ContactListComponent } from './contact-list/contact-list.component';
 import { ContactDetailComponent } from './contact-detail/contact-detail.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -13,8 +14,11 @@ export const routes: Routes = [
   {
     path: 'dashboard',
     component: UserDashboardComponent,
-    children: [{ path: 'contacts/:id', component: ContactDetailComponent }],
+    children: [
+      { path: 'contacts/:id', component: ContactDetailComponent },
+      { path: 'add-contact', component: ContactFormComponent },
+    ],
     canActivate: [AuthGuard],
   },
-  { path: '**', component: LoginComponent },
+  { path: '**', component: PageNotFoundComponent },
 ];

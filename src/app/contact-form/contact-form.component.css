@@ -10,6 +10,18 @@
   border-radius: 4px;
 }
 
+.cancel-btn {
+  padding: 8px 16px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.25s linear;
+}
+.cancel-btn:hover {
+  background-color: rgb(209, 49, 49);
+}
 .save-btn {
   padding: 8px 16px;
   background-color: #4caf50;
@@ -17,6 +29,7 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  transition: all 0.25s linear;
 }
 
 .save-btn:hover {

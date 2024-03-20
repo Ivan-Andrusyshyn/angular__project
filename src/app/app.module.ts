@@ -16,6 +16,7 @@ import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { NgIf } from '@angular/common';
 import { ContactListComponent } from './contact-list/contact-list.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ContactListComponent } from './contact-list/contact-list.component';
     UserDashboardComponent,
     HeaderComponent,
     ContactListComponent,
+    ContactFormComponent,
   ],
   imports: [
     BrowserModule,
