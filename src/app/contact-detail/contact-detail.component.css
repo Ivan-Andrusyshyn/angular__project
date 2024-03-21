@@ -24,6 +24,32 @@
   transition: all 0.25s linear;
 }
 
+/* BLOCK BTN */
+.block__button {
+  width: 150px;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  font-size: 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+
+  background-color: red;
+  color: #fff;
+
+  transition: background-color 0.25s linear;
+}
+
+.block__button:hover {
+  background-color: rgb(175, 26, 26);
+}
+
+.blocked__button {
+  background-color: green;
+}
+.blocked__button:hover {
+  background-color: rgb(25, 182, 25);
+}
+/*  */
 .pencil__emoji:hover {
   background-color: aquamarine;
 }

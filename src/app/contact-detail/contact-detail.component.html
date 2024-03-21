@@ -15,5 +15,11 @@
     <p><strong>Phone Number:</strong> {{ contact.phoneNumber }}</p>
     <p><strong>Description:</strong> {{ contact.description }}</p>
     <p><strong>Company:</strong> {{ contact.company }}</p>
+    <button
+      (click)="contact.isBlocked ? unblockContact() : blockContact()"
+      [ngClass]="{ block__button: true, blocked__button: contact.isBlocked }"
+    >
+      {{ contact.isBlocked ? "Unblock 🔓" : "Block 🔒" }}
+    </button>
   </ng-template>
 </div>

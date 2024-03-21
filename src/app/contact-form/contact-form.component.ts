@@ -33,6 +33,7 @@ export class ContactFormComponent implements OnInit, OnDestroy {
     phoneNumber: '',
     description: '',
     company: '',
+    isBlocked: false,
   };
   private routeSubscription: Subscription | undefined;
   constructor(
@@ -50,13 +51,23 @@ export class ContactFormComponent implements OnInit, OnDestroy {
     });
   }
 
+  getNextId(): number {
+    const maxId = Math.max(
+      ...this.contactService.contacts.map((contact) => contact.id),
+      0
+    );
+    return maxId + 1;
+  }
+
   ngOnDestroy(): void {
     this.routeSubscription?.unsubscribe();
   }
 
   onSave(): void {
     if (this.isAddContactRoute) {
+      this.fieldsContact.id = this.getNextId();
       this.contactService.addContact(this.fieldsContact);
+      this.router.navigate(['/dashboard/contacts', this.fieldsContact.id]);
     } else {
       this.save.emit(this.fieldsContact);
     }

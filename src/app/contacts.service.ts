@@ -10,6 +10,7 @@ export interface ContactTypes {
   phoneNumber: string;
   description: string;
   company: string;
+  isBlocked: boolean;
 }
 
 @Injectable({
@@ -24,6 +25,8 @@ export class ContactsService {
 
   contacts: ContactTypes[] = contactList;
 
+  private readonly CONTACTS_KEY = 'contacts';
+
   filteredContacts: ContactTypes[] = [];
 
   filteredContacts$: BehaviorSubject<ContactTypes[]> = new BehaviorSubject<
@@ -32,15 +35,41 @@ export class ContactsService {
 
   constructor() {
     const savedContact = localStorage.getItem('selectedContact');
-    if (savedContact) {
+    const savedContacts = localStorage.getItem(this.CONTACTS_KEY);
+    if (savedContact && savedContacts) {
+      this.contacts = JSON.parse(savedContacts);
       this.selectedContactSubject.next(JSON.parse(savedContact));
+    } else {
+      this.contacts = contactList;
+      this.saveContacts();
     }
     this.updateFilteredContacts();
+  }
+  private saveContacts(): void {
+    localStorage.setItem(this.CONTACTS_KEY, JSON.stringify(this.contacts));
   }
 
   private updateFilteredContacts(): void {
     this.filteredContacts = [...this.contacts];
     this.filteredContacts$.next(this.filteredContacts);
+  }
+
+  blockContactById(contactId: number): void {
+    const contact = this.contacts.find((c) => c.id === contactId);
+    if (contact) {
+      contact.isBlocked = true;
+      this.setSelectedContact(contact);
+      this.saveContacts();
+    }
+  }
+
+  unblockContactById(contactId: number): void {
+    const contact = this.contacts.find((c) => c.id === contactId);
+    if (contact) {
+      contact.isBlocked = false;
+      this.setSelectedContact(contact);
+      this.saveContacts();
+    }
   }
 
   searchContacts(query: string): void {
@@ -57,6 +86,7 @@ export class ContactsService {
     const index = this.contacts.findIndex((c) => c.id === contact.id);
     if (index !== -1) {
       this.contacts[index] = contact;
+      this.saveContacts();
       this.updateFilteredContacts();
     }
   }
@@ -74,8 +104,10 @@ export class ContactsService {
       return;
     }
 
-    contact.id = this.getNextId();
     this.contacts.push(contact);
+    this.setSelectedContact(contact);
+    this.saveContacts();
+
     this.updateFilteredContacts();
   }
 
@@ -86,10 +118,5 @@ export class ContactsService {
 
   getSelectedContact(): ContactTypes | null {
     return this.selectedContactSubject.getValue();
-  }
-
-  private getNextId(): number {
-    const maxId = Math.max(...this.contacts.map((contact) => contact.id), 0);
-    return maxId + 1;
   }
 }
