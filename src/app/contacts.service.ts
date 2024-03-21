@@ -54,6 +54,13 @@ export class ContactsService {
     this.filteredContacts$.next(this.filteredContacts);
   }
 
+  deleteContactById(contactId: number): void {
+    this.contacts = this.contacts.filter((contact) => contact.id !== contactId);
+    this.updateFilteredContacts();
+    localStorage.setItem('contacts', JSON.stringify(this.contacts));
+    this.setSelectedContact(null);
+  }
+
   blockContactById(contactId: number): void {
     const contact = this.contacts.find((c) => c.id === contactId);
     if (contact) {
@@ -111,7 +118,7 @@ export class ContactsService {
     this.updateFilteredContacts();
   }
 
-  setSelectedContact(contact: ContactTypes): void {
+  setSelectedContact(contact: ContactTypes | null): void {
     this.selectedContactSubject.next(contact);
     localStorage.setItem('selectedContact', JSON.stringify(contact));
   }

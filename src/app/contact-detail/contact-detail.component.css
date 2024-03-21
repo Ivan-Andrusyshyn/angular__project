@@ -1,8 +1,9 @@
 .contact-details {
   margin-top: 20px;
-  padding: 10px;
+  padding: 2rem;
+  border-radius: 1rem;
+
   border: 1px solid #ccc;
-  border-radius: 5px;
   background-color: #f9f9f9;
 }
 
@@ -33,6 +34,10 @@
   margin-top: 1rem;
   cursor: pointer;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   background-color: red;
   color: #fff;
 
@@ -50,6 +55,53 @@
   background-color: rgb(25, 182, 25);
 }
 /*  */
+/* delete btn */
+.delete__button {
+  width: 80px;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  font-size: 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+
+  background-color: rgb(255, 60, 0);
+  color: #fff;
+
+  transition: background-color 0.25s linear;
+}
+.delete__button:hover {
+  background-color: rgb(209, 25, 25);
+}
+/*  */
+
+/* delete container */
+.delete-container {
+  border: 1px solid #e74c3c;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #f9e7e6;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.delete-container p {
+  margin-bottom: 10px;
+  color: #c0392b;
+}
+.delete-container button {
+  margin-right: 10px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.delete-container button:hover {
+  background-color: #c0392b;
+}
+/*  */
+
 .pencil__emoji:hover {
   background-color: aquamarine;
 }

@@ -2,15 +2,18 @@
   <div class="title__container">
     <h2>{{ contact.firstName }} {{ contact.lastName }}</h2>
     <span class="pencil__emoji" (click)="toggleEditMode()">&#9998;</span>
+    <button class="delete__button" (click)="showDeleteContactForm()">
+      Delete
+    </button>
   </div>
-  <div *ngIf="editMode; else displayMode">
+  <div *ngIf="editMode">
     <app-contact-form
       [contact]="contact"
       (save)="saveChanges($event)"
       (toggleEditMode)="toggleEditMode()"
     ></app-contact-form>
   </div>
-  <ng-template #displayMode>
+  <div *ngIf="!editMode && !showDeleteForm">
     <p><strong>Email:</strong> {{ contact.email }}</p>
     <p><strong>Phone Number:</strong> {{ contact.phoneNumber }}</p>
     <p><strong>Description:</strong> {{ contact.description }}</p>
@@ -21,5 +24,12 @@
     >
       {{ contact.isBlocked ? "Unblock 🔓" : "Block 🔒" }}
     </button>
-  </ng-template>
+  </div>
+  <div *ngIf="!editMode && showDeleteForm">
+    <div class="delete-container">
+      <p>Do you want to delete this contact?</p>
+      <button type="button" (click)="deleteContact()">Yes</button>
+      <button type="button" (click)="cancelDeleteContact()">No</button>
+    </div>
+  </div>
 </div>

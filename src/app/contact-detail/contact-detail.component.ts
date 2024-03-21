@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ContactsService, ContactTypes } from '../contacts.service';
 import { Subscription } from 'rxjs';
 import { NgClass, NgIf } from '@angular/common';
@@ -17,16 +17,30 @@ export class ContactDetailComponent implements OnInit, OnDestroy {
   contact: ContactTypes | undefined | null;
   currentContact: ContactTypes | null | undefined;
   editMode: boolean = false;
-
+  showDeleteForm: boolean = false;
   private contactSubscription: Subscription | undefined;
 
   constructor(
     private route: ActivatedRoute,
-    private contactsService: ContactsService
+    private contactsService: ContactsService,
+    private router: Router
   ) {}
 
   toggleEditMode(): void {
     this.editMode = !this.editMode;
+  }
+
+  deleteContact() {
+    if (!this.contact) return;
+    this.contactsService.deleteContactById(this.contact.id);
+    this.router.navigate(['/dashboard']);
+  }
+
+  showDeleteContactForm() {
+    this.showDeleteForm = true;
+  }
+  cancelDeleteContact() {
+    this.showDeleteForm = false;
   }
 
   saveChanges(updateContact: ContactTypes): void {
