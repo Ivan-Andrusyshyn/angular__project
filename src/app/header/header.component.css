@@ -4,9 +4,32 @@
   color: #fff;
   font-size: 2rem;
   letter-spacing: 0.3em;
+
+  display: flex;
+  justify-content: space-between;
 }
 .header h2,
 p {
   margin: 0;
   font-size: 1.2rem;
+}
+
+.header__userContainer {
+}
+/* THEME SWITCHER */
+.header__theme_container {
+  display: flex;
+  gap: 10px;
+}
+
+.header__theme_container button {
+  font-size: 24px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.header__theme_container button.active {
+  transform: scale(1.2);
 }

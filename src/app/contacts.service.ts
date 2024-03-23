@@ -94,6 +94,7 @@ export class ContactsService {
     if (index !== -1) {
       this.contacts[index] = contact;
       this.saveContacts();
+      this.setSelectedContact(contact);
       this.updateFilteredContacts();
     }
   }

@@ -1,0 +1,7 @@
+<button type="button" class="settings__btn" [matMenuTriggerFor]="menu">
+  Settings 🔧
+</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="handleItemClick('User')">User</button>
+  <button mat-menu-item (click)="handleItemClick('Contact')">Contact</button>
+</mat-menu>

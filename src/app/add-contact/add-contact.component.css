@@ -1,5 +1,5 @@
 .addContact__btn {
-  border: 2px solid red;
+  border: 2px solid green;
   border-radius: 50%;
   width: 2rem;
   height: 2rem;
@@ -14,7 +14,6 @@
 }
 
 .addContact__btn:hover {
-  border: 2px solid rgb(67, 43, 206);
   color: yellow;
-  background-color: rgb(116, 116, 238);
+  background-color: rgb(39, 179, 39);
 }

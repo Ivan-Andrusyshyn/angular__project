@@ -14,7 +14,7 @@ export class RegistrationComponent {
   user: any = {};
   constructor(private authService: AuthService, private router: Router) {}
 
-  performLogin(userData: any): void {
+  performRegistration(userData: any): void {
     this.authService.registration(userData);
   }
 }

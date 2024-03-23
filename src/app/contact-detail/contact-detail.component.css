@@ -18,6 +18,8 @@
   width: 3rem;
   border-radius: 50%;
   height: 3rem;
+  border: 1px solid rgb(185, 185, 34);
+
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -55,6 +57,10 @@
   background-color: rgb(25, 182, 25);
 }
 /*  */
+.btn__container {
+  display: flex;
+  gap: 20px;
+}
 /* delete btn */
 .delete__button {
   width: 80px;
@@ -76,9 +82,17 @@
 
 /* delete container */
 .delete-container {
-  border: 1px solid #e74c3c;
   border-radius: 5px;
   padding: 10px;
+  min-width: 300px;
+  max-width: 400px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #e74c3c;
   background-color: #f9e7e6;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

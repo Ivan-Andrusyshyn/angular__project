@@ -2,9 +2,6 @@
   <div class="title__container">
     <h2>{{ contact.firstName }} {{ contact.lastName }}</h2>
     <span class="pencil__emoji" (click)="toggleEditMode()">&#9998;</span>
-    <button class="delete__button" (click)="showDeleteContactForm()">
-      Delete
-    </button>
   </div>
   <div *ngIf="editMode">
     <app-contact-form
@@ -18,18 +15,25 @@
     <p><strong>Phone Number:</strong> {{ contact.phoneNumber }}</p>
     <p><strong>Description:</strong> {{ contact.description }}</p>
     <p><strong>Company:</strong> {{ contact.company }}</p>
-    <button
-      (click)="contact.isBlocked ? unblockContact() : blockContact()"
-      [ngClass]="{ block__button: true, blocked__button: contact.isBlocked }"
-    >
-      {{ contact.isBlocked ? "Unblock 🔓" : "Block 🔒" }}
-    </button>
+    <div class="btn__container">
+      <button
+        (click)="contact.isBlocked ? unblockContact() : blockContact()"
+        [ngClass]="{ block__button: true, blocked__button: contact.isBlocked }"
+      >
+        {{ contact.isBlocked ? "Unblock 🔓" : "Block 🔒" }}
+      </button>
+      <button class="block__button" (click)="showDeleteContactForm()">
+        Delete
+      </button>
+    </div>
   </div>
   <div *ngIf="!editMode && showDeleteForm">
     <div class="delete-container">
       <p>Do you want to delete this contact?</p>
-      <button type="button" (click)="deleteContact()">Yes</button>
-      <button type="button" (click)="cancelDeleteContact()">No</button>
+      <div>
+        <button type="button" (click)="deleteContact()">Yes</button>
+        <button type="button" (click)="cancelDeleteContact()">No</button>
+      </div>
     </div>
   </div>
 </div>

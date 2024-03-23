@@ -1,9 +1,9 @@
-<div class="registration__container">
-  <h2>Registration</h2>
+<div>
   <form
-    class="registration__form"
+    action=""
     #userForm="ngForm"
-    (ngSubmit)="performRegistration(userForm.value)"
+    *ngIf="user"
+    (ngSubmit)="changeUserData(userForm.value)"
   >
     <label for="name">Name:</label>
     <input
@@ -34,10 +34,6 @@
       required
       class="form-control"
     />
-
-    <button type="submit" class="btn btn-primary">Create account</button>
+    <button type="submit">Change</button>
   </form>
-  <span>
-    <a routerLink="/login" class="login_link">Go to login</a>
-  </span>
 </div>

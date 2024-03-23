@@ -5,7 +5,13 @@
     [(ngModel)]="fieldsContact.firstName"
     name="firstName"
     class="input-field"
+    required
+    #firstName="ngModel"
   />
+  <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+    <p class="error-message">First name is required!</p>
+  </div>
+
   <input
     type="text"
     placeholder="Add last name"

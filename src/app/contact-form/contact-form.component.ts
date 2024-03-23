@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { ContactsService, ContactTypes } from '../contacts.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NgIf } from '@angular/common';
+import { NgIf, Location } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
@@ -39,7 +39,8 @@ export class ContactFormComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private contactService: ContactsService,
-    private router: Router
+    private router: Router,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -63,7 +64,12 @@ export class ContactFormComponent implements OnInit, OnDestroy {
     this.routeSubscription?.unsubscribe();
   }
 
+  isNameFieldEmpty(): boolean {
+    return this.fieldsContact.firstName.trim() === '';
+  }
+
   onSave(): void {
+    if (this.isNameFieldEmpty()) return;
     if (this.isAddContactRoute) {
       this.fieldsContact.id = this.getNextId();
       this.contactService.addContact(this.fieldsContact);
@@ -75,7 +81,7 @@ export class ContactFormComponent implements OnInit, OnDestroy {
 
   onCancel(): void {
     if (!this.contact) {
-      this.router.navigate(['/dashboard']);
+      this.location.back();
       this.save.emit();
     } else {
       this.toggleEditMode.emit();

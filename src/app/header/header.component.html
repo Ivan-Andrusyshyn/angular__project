@@ -1,7 +1,24 @@
 <header class="header">
-  <h2>Contact book by IvanDev</h2>
-  <p *ngIf="user">
-    Welcome
-    <span style="color: green"> "{{ user.name }}" </span>
-  </p>
+  <div class="header__userContainer">
+    <h2>Contact book by IvanDev</h2>
+    <p *ngIf="user">
+      Welcome <span style="color: green">{{ user.name }}</span>
+    </p>
+  </div>
+  <app-settings></app-settings>
+
+  <div class="header__theme_container">
+    <button
+      (click)="setLightTheme('light')"
+      [class.active]="getCurrentTheme() === 'light'"
+    >
+      ☀️
+    </button>
+    <button
+      (click)="setDarkTheme('dark')"
+      [class.active]="getCurrentTheme() === 'dark'"
+    >
+      🌚
+    </button>
+  </div>
 </header>
