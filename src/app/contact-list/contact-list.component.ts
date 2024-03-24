@@ -1,8 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ContactTypes, ContactsService } from '../contacts.service';
+import { ContactsService } from '../contacts.service';
 import { Subscription } from 'rxjs';
 import { NgFor, NgIf } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { ContactTypes } from '../models/ContactInterface';
 
 @Component({
   selector: 'app-contact-list',

@@ -1,1 +1,23 @@
-<p>contact-settings works!</p>
+<div class="checkbox-container">
+  <label>
+    <input type="checkbox" [(ngModel)]="settingsService.contactOptions.showLastName" />
+    <span class="checkbox-label">Last Name</span>
+  </label>
+  <label>
+    <input type="checkbox" [(ngModel)]="settingsService.contactOptions.showEmail" />
+    <span class="checkbox-label">Email</span>
+  </label>
+  <label>
+    <input type="checkbox" [(ngModel)]="settingsService.contactOptions.showPhoneNumber" />
+    <span class="checkbox-label">Phone Number</span>
+  </label>
+  <label>
+    <input type="checkbox" [(ngModel)]="settingsService.contactOptions.showDescription" />
+    <span class="checkbox-label">Description</span>
+  </label>
+  <label>
+    <input type="checkbox" [(ngModel)]="settingsService.contactOptions.showCompany" />
+    <span class="checkbox-label">Company</span>
+  </label>
+  <button (click)="saveSettings()">Save Settings</button>
+</div>

@@ -11,10 +11,10 @@
     ></app-contact-form>
   </div>
   <div *ngIf="!editMode && !showDeleteForm">
-    <p><strong>Email:</strong> {{ contact.email }}</p>
-    <p><strong>Phone Number:</strong> {{ contact.phoneNumber }}</p>
-    <p><strong>Description:</strong> {{ contact.description }}</p>
-    <p><strong>Company:</strong> {{ contact.company }}</p>
+    <p *ngIf="settingsService.contactOptions.showEmail"><strong>Email:</strong> {{ contact.email }}</p>
+    <p *ngIf="settingsService.contactOptions.showPhoneNumber"><strong>Phone Number:</strong> {{ contact.phoneNumber }}</p>
+    <p *ngIf="settingsService.contactOptions.showDescription"><strong>Description:</strong> {{ contact.description }}</p>
+    <p *ngIf="settingsService.contactOptions.showCompany"><strong>Company:</strong> {{ contact.company }}</p>
     <div class="btn__container">
       <button
         (click)="contact.isBlocked ? unblockContact() : blockContact()"

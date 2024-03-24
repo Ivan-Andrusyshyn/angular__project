@@ -1,10 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ContactsService, ContactTypes } from '../contacts.service';
+import { ContactsService } from '../contacts.service';
 import { Subscription } from 'rxjs';
 import { NgClass, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ContactFormComponent } from '../contact-form/contact-form.component';
+import { ContactTypes } from '../models/ContactInterface';
+import { SettingsService } from '../settings.service';
 
 @Component({
   selector: 'app-contact-detail',
@@ -23,7 +25,8 @@ export class ContactDetailComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private contactsService: ContactsService,
-    private router: Router
+    private router: Router,
+    public settingsService:SettingsService
   ) {}
 
   toggleEditMode(): void {

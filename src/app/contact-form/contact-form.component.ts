@@ -6,11 +6,12 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-import { ContactsService, ContactTypes } from '../contacts.service';
+import { ContactsService } from '../contacts.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgIf, Location } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Subscription } from 'rxjs';
+import { ContactTypes } from '../models/ContactInterface';
 
 @Component({
   selector: 'app-contact-form',

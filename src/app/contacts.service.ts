@@ -1,17 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { contactList } from './utils/contactList';
-
-export interface ContactTypes {
-  id: number;
-  firstName: string;
-  lastName: string;
-  email: string;
-  phoneNumber: string;
-  description: string;
-  company: string;
-  isBlocked: boolean;
-}
+import { ContactTypes } from './models/ContactInterface';
 
 @Injectable({
   providedIn: 'root',
@@ -27,11 +17,10 @@ export class ContactsService {
 
   private readonly CONTACTS_KEY = 'contacts';
 
-  filteredContacts: ContactTypes[] = [];
-
   filteredContacts$: BehaviorSubject<ContactTypes[]> = new BehaviorSubject<
     ContactTypes[]
   >([]);
+  filteredContacts: ContactTypes[] = [];
 
   constructor() {
     const savedContact = localStorage.getItem('selectedContact');

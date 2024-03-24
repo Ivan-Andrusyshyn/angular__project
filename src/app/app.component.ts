@@ -26,7 +26,7 @@ import { HeaderComponent } from './header/header.component';
   providers: [AuthService, AuthGuard],
 })
 export class AppComponent implements OnInit {
-  constructor(@Inject(Router) private router: Router) {}
+  constructor(private router: Router) {}
   ngOnInit(): void {
     const isLogged = JSON.stringify(localStorage.getItem('isAuthenticated'));
     if (!isLogged) return;

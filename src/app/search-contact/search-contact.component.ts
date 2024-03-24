@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { FormsModule, NgModel } from '@angular/forms';
-import { ContactTypes, ContactsService } from '../contacts.service';
+import { FormsModule,   } from '@angular/forms';
+import {   ContactsService } from '../contacts.service';
 
 @Component({
   selector: 'app-search-contact',

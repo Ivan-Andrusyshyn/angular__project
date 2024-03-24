@@ -1,8 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AuthService, User } from '../auth.service';
+import { AuthService,   } from '../auth.service';
 import { Subscription } from 'rxjs';
 import { Location, NgIf } from '@angular/common';
+import { User } from '../models/UserInterface';
 
 @Component({
   selector: 'app-user-settings',

@@ -1,0 +1,38 @@
+.checkbox-container {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.checkbox-container label {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.checkbox-container input[type="checkbox"] {
+margin-right: 10px; 
+width: 32px;
+height: 32px;
+cursor: pointer;
+}
+
+.checkbox-label {
+  font-size: 1rem; 
+}
+
+.checkbox-container button {
+  padding: 1rem;
+  font-size: 1.2rem;
+border-radius: 6px;
+max-width: 340px;
+
+  cursor: pointer;
+  transition: all 0.25s linear;
+} 
+.checkbox-container button:hover{
+  background-color: #bdbdbd;
+
+}

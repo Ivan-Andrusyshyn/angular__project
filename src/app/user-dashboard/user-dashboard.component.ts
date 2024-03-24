@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { ContactListComponent } from '../contact-list/contact-list.component';
-import { ContactTypes, ContactsService } from '../contacts.service';
+import { ContactsService } from '../contacts.service';
 import { NgIf } from '@angular/common';
 import { SearchContactComponent } from '../search-contact/search-contact.component';
 import { Router, RouterOutlet } from '@angular/router';
 import { AddContactComponent } from '../add-contact/add-contact.component';
+import { ContactTypes } from '../models/ContactInterface';
 
 @Component({
   selector: 'app-user-dashboard',

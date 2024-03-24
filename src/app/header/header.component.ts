@@ -3,12 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AuthService } from '../auth.service';
 import { Subscription } from 'rxjs';
 import { SettingsComponent } from '../settings/settings.component';
-
-export interface User {
-  name: string;
-  email: string;
-  password: string;
-}
+import { User } from '../models/UserInterface';
 
 @Component({
   selector: 'app-header',
