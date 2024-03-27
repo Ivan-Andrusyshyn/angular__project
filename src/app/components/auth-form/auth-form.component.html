@@ -1,0 +1,51 @@
+<div class="registration__container">
+  <h2>{{ isRegistration ? "Registration" : isChanging ? "" : "Login" }}</h2>
+  <form class="registration__form" [formGroup]="authForm" (ngSubmit)="onAuth()">
+    <label *ngIf="isRegistration || isChanging" for="name">Name:</label>
+    <input
+      *ngIf="isRegistration || isChanging"
+      type="text"
+      id="name"
+      formControlName="name"
+      name="name"
+      class="form-control"
+    />
+
+    <label for="email">Email:</label>
+    <input
+      type="email"
+      id="email"
+      formControlName="email"
+      name="email"
+      class="form-control"
+    />
+
+    <label for="password">Password:</label>
+    <input
+      type="password"
+      id="password"
+      formControlName="password"
+      name="password"
+      class="form-control"
+    />
+    <button
+      *ngIf="!isRegistration && !isChanging"
+      type="submit"
+      class="btn btn-primary"
+    >
+      Log in
+    </button>
+    <button *ngIf="isRegistration" type="submit" class="btn btn-primary">
+      Create account
+    </button>
+    <button *ngIf="isChanging" type="submit" class="btn btn-primary">
+      Change
+    </button>
+  </form>
+  <span *ngIf="!isRegistration && !isChanging">
+    <a class="login_link" routerLink="/registration">Create account </a>
+  </span>
+  <span *ngIf="isRegistration">
+    <a routerLink="/login" class="login_link">Go to login</a>
+  </span>
+</div>

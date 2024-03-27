@@ -10,23 +10,11 @@ import { AuthGuard } from './auth.guard';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppComponent } from './app.component';
-import { RegistrationComponent } from './registration/registration.component';
-import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
-import { LoginComponent } from './login/login.component';
-import { HeaderComponent } from './header/header.component';
 import { NgIf } from '@angular/common';
-import { ContactListComponent } from './contact-list/contact-list.component';
-import { ContactFormComponent } from './contact-form/contact-form.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent,
-    RegistrationComponent,
-    UserDashboardComponent,
-    HeaderComponent,
-    ContactListComponent,
-    ContactFormComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,

@@ -38,13 +38,14 @@ export class AuthService {
       alert('User with this email already exists!');
       return;
     }
-    this.users.push(newUser);
-    this.onStorage(newUser, 'R');
-    this.authUser.next(newUser);
+    const userWithId: User = { ...newUser, id: Date.now() };
+    this.users.push(userWithId);
+    this.onStorage(userWithId, 'R');
+    this.authUser.next(userWithId);
     this.router.navigate(['/dashboard']);
   }
 
-  login(email: string, password: string): void {
+  login(loggedUser: { email: string; password: string }): void {
     const storedUsers = localStorage.getItem('USERS');
     if (!storedUsers) {
       alert('No users registered yet!');
@@ -54,7 +55,8 @@ export class AuthService {
     this.users = JSON.parse(storedUsers);
 
     const user = this.users.find(
-      (user) => user.email === email && user.password === password
+      (user) =>
+        user.email === loggedUser.email && user.password === loggedUser.password
     );
     if (user) {
       this.authUser.next(user);
@@ -68,6 +70,7 @@ export class AuthService {
 
   updateUser(updatedUser: User): void {
     localStorage.setItem('USER', JSON.stringify(updatedUser));
+    this.authUser.next(updatedUser);
   }
 
   logout(): void {

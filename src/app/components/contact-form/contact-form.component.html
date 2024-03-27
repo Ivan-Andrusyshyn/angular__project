@@ -1,0 +1,57 @@
+<form class="edit-mode" (ngSubmit)="onSave()" [formGroup]="contactForm">
+  <input
+    type="text"
+    placeholder="Add first name"
+    name="firstName"
+    class="input-field"
+    formControlName="firstName"
+  />
+  <div
+    *ngIf="
+      contactForm.get('firstName')?.invalid &&
+      (contactForm.get('firstName')?.dirty ||
+        contactForm.get('firstName')?.touched)
+    "
+  >
+    <p class="error-message">
+      First name is required and must be at least 2 characters long!
+    </p>
+  </div>
+  <input
+    type="text"
+    placeholder="Add last name"
+    name="lastName"
+    formControlName="lastName"
+    class="input-field"
+  />
+  <input
+    type="email"
+    placeholder="Add email"
+    formControlName="email"
+    name="email"
+    class="input-field"
+  />
+  <input
+    type="tel"
+    placeholder="Add phone number"
+    formControlName="phoneNumber"
+    name="phoneNumber"
+    class="input-field"
+  />
+  <textarea
+    formControlName="description"
+    placeholder="Add description"
+    name="description"
+    class="input-field"
+  ></textarea>
+  <input
+    type="text"
+    formControlName="company"
+    placeholder="Add company"
+    name="company"
+    class="input-field"
+  />
+
+  <button type="submit" class="save-btn">Save</button>
+  <button type="button" (click)="onCancel()" class="cancel-btn">Cancel</button>
+</form>

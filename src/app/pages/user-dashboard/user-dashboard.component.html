@@ -1,0 +1,16 @@
+<section class="user__container">
+  <div class="sidebar">
+    <div class="contact__container">
+      <div class="title__contact_container">
+        <h2>Contacts</h2>
+        <app-add-btn-contact></app-add-btn-contact>
+      </div>
+      <app-search-contact></app-search-contact>
+      <app-contact-list></app-contact-list>
+    </div>
+    <button class="btn__logout" (click)="onLogout()">Logout</button>
+  </div>
+  <div class="currentContact__container">
+    <router-outlet></router-outlet>
+  </div>
+</section>

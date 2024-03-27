@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { contactList } from './utils/contactList';
 import { ContactTypes } from './models/ContactInterface';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
@@ -15,15 +16,15 @@ export class ContactsService {
 
   contacts: ContactTypes[] = contactList;
 
-  private readonly CONTACTS_KEY = 'contacts';
-
   filteredContacts$: BehaviorSubject<ContactTypes[]> = new BehaviorSubject<
     ContactTypes[]
   >([]);
   filteredContacts: ContactTypes[] = [];
+  private readonly CONTACTS_KEY = `${this.authService.authUser.value?.id} `;
 
-  constructor() {
+  constructor(private authService: AuthService) {
     const savedContact = localStorage.getItem('selectedContact');
+    if (!this.CONTACTS_KEY) return;
     const savedContacts = localStorage.getItem(this.CONTACTS_KEY);
     if (savedContact && savedContacts) {
       this.contacts = JSON.parse(savedContacts);
@@ -34,7 +35,9 @@ export class ContactsService {
     }
     this.updateFilteredContacts();
   }
+
   private saveContacts(): void {
+    if (!this.CONTACTS_KEY) return;
     localStorage.setItem(this.CONTACTS_KEY, JSON.stringify(this.contacts));
   }
 
@@ -46,7 +49,7 @@ export class ContactsService {
   deleteContactById(contactId: number): void {
     this.contacts = this.contacts.filter((contact) => contact.id !== contactId);
     this.updateFilteredContacts();
-    localStorage.setItem('contacts', JSON.stringify(this.contacts));
+    localStorage.setItem(this.CONTACTS_KEY, JSON.stringify(this.contacts));
     this.setSelectedContact(null);
   }
 
@@ -90,7 +93,6 @@ export class ContactsService {
 
   addContact(contact: ContactTypes | undefined): void {
     if (!contact) return;
-
     const isDuplicateContact = this.contacts.some(
       (c) =>
         c.firstName === contact.firstName && c.lastName === contact.lastName

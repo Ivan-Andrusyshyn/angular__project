@@ -19,14 +19,4 @@ export const contactList = [
     company: '',
     isBlocked: false,
   },
-  {
-    id: 3,
-    firstName: 'Petro',
-    lastName: '',
-    email: 'contact3@icloud.com',
-    phoneNumber: '333',
-    description: '',
-    company: '',
-    isBlocked: false,
-  },
 ];

@@ -9,7 +9,7 @@ import {
 } from '@angular/router';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @Component({
   selector: 'app-root',
@@ -32,5 +32,4 @@ export class AppComponent implements OnInit {
     if (!isLogged) return;
     this.router.navigate(['/dashboard']);
   }
-  title = '11';
 }

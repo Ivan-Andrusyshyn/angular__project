@@ -1,13 +1,14 @@
 import { Routes } from '@angular/router';
-import { RegistrationComponent } from './registration/registration.component';
-import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { RegistrationComponent } from './pages/registration/registration.component';
+import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.component';
 import { AuthGuard } from './auth.guard';
-import { LoginComponent } from './login/login.component';
-import { ContactDetailComponent } from './contact-detail/contact-detail.component';
-import { ContactFormComponent } from './contact-form/contact-form.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { UserSettingsComponent } from './user-settings/user-settings.component';
-import { ContactSettingsComponent } from './contact-settings/contact-settings.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { UserSettingsComponent } from './pages/user-settings/user-settings.component';
+import { ContactSettingsComponent } from './pages/contact-settings/contact-settings.component';
+import { ContactDetailComponent } from './pages/contact-detail/contact-detail.component';
+import { ContactFormComponent } from './components/contact-form/contact-form.component';
+import { LoginComponent } from './pages/login/login.component';
+import { AddContactComponent } from './pages/add-contact/add-contact.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -18,7 +19,7 @@ export const routes: Routes = [
     component: UserDashboardComponent,
     children: [
       { path: 'contacts/:id', component: ContactDetailComponent },
-      { path: 'add-contact', component: ContactFormComponent },
+      { path: 'add-contact', component: AddContactComponent },
       { path: 'user-settings', component: UserSettingsComponent },
       { path: 'contact-settings', component: ContactSettingsComponent },
     ],
