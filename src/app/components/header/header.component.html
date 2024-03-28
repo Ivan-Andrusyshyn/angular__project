@@ -5,7 +5,9 @@
       Welcome <span style="color: green">{{ user.name }}</span>
     </p>
   </div>
-  <app-settings></app-settings>
+  <ng-container *ngIf="user">
+    <app-settings></app-settings>
+  </ng-container>
 
   <div class="header__theme_container">
     <button
