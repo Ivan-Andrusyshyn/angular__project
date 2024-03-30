@@ -6,7 +6,9 @@ import { Router, RouterOutlet } from '@angular/router';
 import { ContactTypes } from '../../models/ContactInterface';
 import { ContactListComponent } from '../../components/contact-list/contact-list.component';
 import { SearchContactComponent } from '../../components/search-contact/search-contact.component';
-import { AddBtnContactComponent } from '../../components/add-btn-contact.component/add-btn-contact.component';
+import { AddBtnContactComponent } from '../../components/add-btn-contact/add-btn-contact.component';
+import { ThemeService } from '../../theme.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-user-dashboard',
@@ -22,10 +24,12 @@ import { AddBtnContactComponent } from '../../components/add-btn-contact.compone
   styleUrl: './user-dashboard.component.css',
 })
 export class UserDashboardComponent {
+  theme = 'light';
+
   constructor(
     private authService: AuthService,
     private router: Router,
-    private contactsService: ContactsService
+    private themeService: ThemeService
   ) {
     const savedContact = localStorage.getItem('selectedContact');
     if (savedContact) {
@@ -34,6 +38,11 @@ export class UserDashboardComponent {
         this.router.navigate(['/dashboard/contacts', parsedContact.id]);
       }
     }
+    this.themeService.themeSubject
+      .pipe(takeUntilDestroyed())
+      .subscribe((theme: string) => {
+        this.theme = theme;
+      });
   }
 
   onLogout() {

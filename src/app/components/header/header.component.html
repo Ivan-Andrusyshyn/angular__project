@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header" [class.dark-theme]="theme === 'dark'">
   <div class="header__userContainer">
     <h2>Contact book by IvanDev</h2>
     <p *ngIf="user">
@@ -10,16 +10,10 @@
   </ng-container>
 
   <div class="header__theme_container">
-    <button
-      (click)="setLightTheme('light')"
-      [class.active]="getCurrentTheme() === 'light'"
-    >
+    <button (click)="toggleTheme()" [class.active]="theme === 'light'">
       ☀️
     </button>
-    <button
-      (click)="setDarkTheme('dark')"
-      [class.active]="getCurrentTheme() === 'dark'"
-    >
+    <button (click)="toggleTheme()" [class.active]="theme === 'dark'">
       🌚
     </button>
   </div>

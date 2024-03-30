@@ -13,9 +13,15 @@ p {
   margin: 0;
   font-size: 1.2rem;
 }
+/*  */
 
-.header__userContainer {
+.dark-theme {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
 }
+
+/*  */
+
 /* THEME SWITCHER */
 .header__theme_container {
   display: flex;

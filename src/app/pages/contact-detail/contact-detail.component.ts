@@ -7,6 +7,7 @@ import { ContactFormComponent } from '../../components/contact-form/contact-form
 import { ContactTypes } from '../../models/ContactInterface';
 import { SettingsService } from '../../settings.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { ThemeService } from '../../theme.service';
 
 @Component({
   selector: 'app-contact-detail',
@@ -21,13 +22,20 @@ export class ContactDetailComponent implements OnInit {
   editMode: boolean = false;
   showDeleteForm: boolean = false;
   destroyRef = inject(DestroyRef);
-
+  theme = 'light';
   constructor(
     private route: ActivatedRoute,
     private contactsService: ContactsService,
     private router: Router,
-    public settingsService: SettingsService
-  ) {}
+    public settingsService: SettingsService,
+    private themeService: ThemeService
+  ) {
+    this.themeService.themeSubject
+      .pipe(takeUntilDestroyed())
+      .subscribe((theme: string) => {
+        this.theme = theme;
+      });
+  }
 
   ngOnInit(): void {
     this.route.paramMap

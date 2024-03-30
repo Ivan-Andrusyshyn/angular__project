@@ -1,4 +1,4 @@
-<div class="registration__container">
+<div class="registration__container" [class.dark-theme]="theme === 'dark'">
   <h2>{{ isRegistration ? "Registration" : isChanging ? "" : "Login" }}</h2>
   <form class="registration__form" [formGroup]="authForm" (ngSubmit)="onAuth()">
     <label *ngIf="isRegistration || isChanging" for="name">Name:</label>

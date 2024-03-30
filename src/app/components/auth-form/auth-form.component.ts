@@ -8,6 +8,8 @@ import {
 } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { AuthService } from '../../auth.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { ThemeService } from '../../theme.service';
 
 @Component({
   selector: 'app-auth-form',
@@ -24,12 +26,24 @@ export class AuthFormComponent implements OnInit {
 
   isRegistration: boolean = false;
   isChanging: boolean = false;
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+  theme = 'light';
+
+  constructor(
+    private fb: FormBuilder,
+    private themeService: ThemeService,
+    private authService: AuthService
+  ) {
     this.authForm = this.fb.group({
       name: ['', [Validators.required]],
       email: ['', [Validators.required]],
       password: ['', [Validators.required]],
     });
+
+    this.themeService.themeSubject
+      .pipe(takeUntilDestroyed())
+      .subscribe((theme: string) => {
+        this.theme = theme;
+      });
   }
   ngOnInit(): void {
     this.isRegistration = this.componentName === 'Registration';

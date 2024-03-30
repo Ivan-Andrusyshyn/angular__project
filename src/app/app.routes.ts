@@ -6,7 +6,6 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { UserSettingsComponent } from './pages/user-settings/user-settings.component';
 import { ContactSettingsComponent } from './pages/contact-settings/contact-settings.component';
 import { ContactDetailComponent } from './pages/contact-detail/contact-detail.component';
-import { ContactFormComponent } from './components/contact-form/contact-form.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AddContactComponent } from './pages/add-contact/add-contact.component';
 

@@ -15,7 +15,10 @@
   font-size: 14px;
   margin-bottom: 5px;
 }
-
+.btn_container {
+  display: flex;
+  gap: 20px;
+}
 .cancel-btn {
   padding: 8px 16px;
   background-color: red;

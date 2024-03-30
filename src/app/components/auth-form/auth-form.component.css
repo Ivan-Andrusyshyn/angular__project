@@ -50,3 +50,12 @@
   font-size: 1.5rem;
   color: #010101;
 }
+/* theme */
+.dark-theme {
+  background-color: transparent;
+}
+.dark-theme button {
+  background-color: #0056b3;
+}
+
+/*  */

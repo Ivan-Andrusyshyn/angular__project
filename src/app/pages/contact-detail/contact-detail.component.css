@@ -12,7 +12,12 @@
   align-items: center;
   gap: 2rem;
 }
-
+/*  */
+.dark-theme {
+  background-color: transparent;
+  border: 1px solid #ccc;
+}
+/*  */
 .pencil__emoji {
   font-size: 24px;
   width: 3rem;

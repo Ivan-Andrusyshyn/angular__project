@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule, NgIf } from '@angular/common';
 import { AuthService } from '../../auth.service';
 import { User } from '../../models/UserInterface';
 import { SettingsComponent } from '../settings/settings.component';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { ThemeService } from '../../theme.service';
 
 @Component({
   selector: 'app-header',
@@ -15,22 +16,21 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 export class HeaderComponent {
   user: User | null = null;
   theme = 'light';
-  constructor(private authService: AuthService) {
+  constructor(
+    private authService: AuthService,
+    private themeService: ThemeService
+  ) {
     this.authService.authUser
       ?.pipe(takeUntilDestroyed())
       .subscribe((user: User | null) => {
         this.user = user;
       });
+    this.theme = themeService.getTheme();
   }
 
-  setLightTheme(newTheme: string): void {
-    this.theme = newTheme;
-  }
-
-  setDarkTheme(newTheme: string): void {
-    this.theme = newTheme;
-  }
-  getCurrentTheme(): string {
-    return this.theme;
+  toggleTheme() {
+    const currentTheme = this.themeService.getTheme();
+    this.theme = currentTheme === 'light' ? 'dark' : 'light';
+    this.themeService.setTheme(this.theme);
   }
 }
