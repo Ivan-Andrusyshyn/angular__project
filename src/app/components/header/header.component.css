@@ -16,7 +16,8 @@ p {
 /*  */
 
 .dark-theme {
-  background-color: #1a1a1a;
+  background-color: transparent;
+  border: 1px solid #fff;
   color: #e0e0e0;
 }
 

@@ -44,6 +44,9 @@
 }
 /* theme */
 .dark-theme {
-  background-color: #1a1a1a;
+  background-color: transparent;
+  border-width: 0px 1px 0px 1px;
+  border-style: solid;
+  border-color: #fff;
   color: #e0e0e0;
 }

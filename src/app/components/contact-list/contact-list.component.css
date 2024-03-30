@@ -42,7 +42,7 @@
 .contact__list_item_notFound {
   color: rgb(255, 60, 0);
 }
-
+/* theme */
 .active {
-  background-color: rgb(0, 255, 157);
+  border-bottom: 1px solid #9999;
 }
