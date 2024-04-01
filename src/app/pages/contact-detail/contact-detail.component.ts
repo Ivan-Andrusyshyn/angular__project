@@ -1,13 +1,14 @@
 import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ContactsService } from '../../contacts.service';
 import { NgClass, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+
 import { ContactFormComponent } from '../../components/contact-form/contact-form.component';
 import { ContactTypes } from '../../models/ContactInterface';
-import { SettingsService } from '../../settings.service';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { ThemeService } from '../../theme.service';
+import { SettingsService } from '../../services/settings.service';
+import { ContactsService } from '../../services/contacts.service';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-contact-detail',

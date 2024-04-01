@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ContactTypes } from '../../models/ContactInterface';
-import { ContactsService } from '../../contacts.service';
+
+import { ContactsService } from '../../services/contacts.service';
 import { ContactFormComponent } from '../../components/contact-form/contact-form.component';
 
 @Component({

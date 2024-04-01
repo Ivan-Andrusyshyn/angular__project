@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../auth.service';
-import { ContactsService } from '../../contacts.service';
+import { Component } from '@angular/core';
 import { NgIf } from '@angular/common';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router, RouterOutlet } from '@angular/router';
+
+import { AuthService } from '../../services/auth.service';
 import { ContactTypes } from '../../models/ContactInterface';
 import { ContactListComponent } from '../../components/contact-list/contact-list.component';
 import { SearchContactComponent } from '../../components/search-contact/search-contact.component';
 import { AddBtnContactComponent } from '../../components/add-btn-contact/add-btn-contact.component';
-import { ThemeService } from '../../theme.service';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-user-dashboard',

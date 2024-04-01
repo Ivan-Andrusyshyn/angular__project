@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../../auth.service';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { AuthFormComponent } from '../../components/auth-form/auth-form.component';
 import { NgIf } from '@angular/common';
+
+import { AuthService } from '../../services/auth.service';
+import { AuthFormComponent } from '../../components/auth-form/auth-form.component';
 import { User } from '../../models/UserInterface';
 
 @Component({

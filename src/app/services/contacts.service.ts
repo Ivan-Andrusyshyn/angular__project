@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { contactList } from './utils/contactList';
-import { ContactTypes } from './models/ContactInterface';
+import { contactList } from '../utils/contactList';
+import { ContactTypes } from '../models/ContactInterface';
 import { AuthService } from './auth.service';
 
 @Injectable({

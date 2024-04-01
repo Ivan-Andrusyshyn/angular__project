@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { MatMenuModule } from '@angular/material/menu';
-import { SettingsService } from '../../settings.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,10 +10,7 @@ import { Router } from '@angular/router';
   styleUrl: './settings.component.css',
 })
 export class SettingsComponent {
-  constructor(
-    private settingsService: SettingsService,
-    private router: Router
-  ) {}
+  constructor(private router: Router) {}
 
   handleItemClick(menuItem: string): void {
     if (menuItem === 'User') {

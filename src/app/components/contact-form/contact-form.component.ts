@@ -7,13 +7,14 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-import { ContactsService } from '../../contacts.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgIf, Location } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ContactTypes } from '../../models/ContactInterface';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { ContactTypes } from '../../models/ContactInterface';
+import { ContactsService } from '../../services/contacts.service';
 
 @Component({
   selector: 'app-contact-form',

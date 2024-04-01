@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AuthService } from '../../auth.service';
 import { Location, NgIf } from '@angular/common';
-import { User } from '../../models/UserInterface';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+
+import { AuthService } from '../../services/auth.service';
 import { AuthFormComponent } from '../../components/auth-form/auth-form.component';
 
 @Component({

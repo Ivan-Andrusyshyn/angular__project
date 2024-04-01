@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { routes } from './app.routes';
-import { AuthService } from './auth.service';
+import { AuthService } from './services/auth.service';
 import { AuthGuard } from './auth.guard';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -13,9 +13,7 @@ import { AppComponent } from './app.component';
 import { NgIf } from '@angular/common';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     FormsModule,

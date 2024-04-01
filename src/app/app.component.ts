@@ -7,7 +7,7 @@ import {
   RouterModule,
   RouterOutlet,
 } from '@angular/router';
-import { AuthService } from './auth.service';
+import { AuthService } from './services/auth.service';
 import { AuthGuard } from './auth.guard';
 import { HeaderComponent } from './components/header/header.component';
 

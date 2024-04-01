@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule, NgIf } from '@angular/common';
-import { AuthService } from '../../auth.service';
-import { User } from '../../models/UserInterface';
-import { SettingsComponent } from '../settings/settings.component';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { ThemeService } from '../../theme.service';
+
+import { AuthService } from '../../services/auth.service';
+import { User } from '../../models/UserInterface';
+import { ThemeService } from '../../services/theme.service';
+import { SettingsComponent } from '../settings/settings.component';
 
 @Component({
   selector: 'app-header',

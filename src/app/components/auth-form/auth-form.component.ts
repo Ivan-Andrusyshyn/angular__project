@@ -7,9 +7,9 @@ import {
   Validators,
 } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { AuthService } from '../../auth.service';
+import { AuthService } from '../../services/auth.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { ThemeService } from '../../theme.service';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-auth-form',

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
-import { User } from './models/UserInterface';
+import { User } from '../models/UserInterface';
 
 @Injectable({
   providedIn: 'root',
